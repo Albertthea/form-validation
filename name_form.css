@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #535353;
+    margin: 0;
+}
+
+.form {
+    height: 412px;
+    width: 600px;
+    border-radius: 20px;
+    background-color: #ecdcdcc6;
+    box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.25);
+    margin: 82px auto;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 50px;
+    color: #5f4833ae;
+    width: 270px;
+    margin: 0 auto 17px;
+    padding-top: 17px;
+}
+
+
+.input {
+    border: 2px solid #787878;
+    width: 509px;
+    height: 49px;
+    border-radius: 10px;
+    margin: 0 50px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #787878;
+    padding: 0 15px;
+}
+
+.autocomplete {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+  
+.label-text {
+    font-weight: 700;
+    color: #787878;
+}
+
+.input::placeholder {
+    color:#CCCCCC;
+}
+
+.checkbox {
+    border: 2px solid #787878;
+    margin-left: 50px;
+    display: none;
+}
+
+.checkbox + span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    border: 2px solid #787878;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 10px;
+    padding: 2px;
+}
+
+.checkbox:checked + span:after {
+    position: relative;
+    top: -4px;
+    left: 2px;
+    content: '\2714';
+    font-size: 9px;
+}
+
+.checkbox-text {
+    color: #787878;
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 4px;
+}
+
+.star {
+    margin-left: 40px;
+    position: absolute;
+}
+
+.checkbox-container {
+    width: 600px;
+    height: 31px;
+}
+
+.button {
+    background: #ba99b4;
+    display: block;
+    top: 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 18px 55px;
+    color: #FFFFFF;
+    margin: 45px auto 0;
+    border: 1px solid grey;
+    cursor: pointer;
+    transition: .3s box-shadow;
+}
+
+button:hover {
+    box-shadow: 5px 5px 8px 0;
+}
+
+button:active {
+    box-shadow: inset 3px 3px 3px 1px black;
+}
+
+.text-input-label {
+    margin-left: 50px;
+}
+
+.dropdown {
+    background-color: #fff;
+    width: 509px;
+    margin-left: 45px;
+    position: absolute;
+    padding: 0 15px;
+    border-radius: 10px;
+}
+
+#name-input:focus ~ .dropdown {
+    display: block;
+}
+
+.mandatory-area {
+    visibility: hidden;
+    color: red;
+    font-size: 10px;
+    margin: 0 50px;
+}
+
+@media screen and (max-width: 768px) and (min-width: 320px) {
+    .form {
+        width: 94.79%;
+        position: fixed;
+        border-radius: 2.6%;
+        box-shadow: 0 0 5.2% 1.3% rgba(0, 0, 0, 0.25);
+        margin: 10.677% 2vw;
+    }
+
+    .autocomplete {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .email_style {
+        border: 1px solid #787878;
+        width: 35%;
+        height: 3.4%;
+        border-radius: .7%;
+    }
+
+    .input {
+        width: 90%;
+        display: block;
+        margin: 0 auto 13px;
+    }
+
+    .dropdown {
+        width: 90%;
+        margin: -14px 5%;
+    }
+
+    .left-side_mobile {
+        margin-left: 5%;
+    }
+
+    .button {
+        margin: 25px auto 0;
+        padding: 12px 40px;
+    }
+
+    .checkbox-text {
+        font-size: 14px;
+    }
+
+    .star {
+        margin-left: 3vw;;
+    }
+
+    .checkbox + span {
+    margin-top: 0;
+    margin-left: 5vw;
+    }
+
+    .checkbox-text {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 355px) and (min-width: 320px) {
+    .checkbox-text {
+        font-size: 13px;
+    }
+}
+

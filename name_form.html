@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <title>Registration Form</title>
+        <link rel="stylesheet" type="text/css" href="name_form.css">
+        <script src='name_form.js' defer></script>
+    </head>
+    <body>
+        <form class="form">
+            <h1 class="title">Регистрация</h1>
+            <label for="name-input" class="text-input-label left-side_mobile">
+                <span class="label-text">Имя</span>
+            </label>
+            <div class="autocomplete">
+                <span class="star">*</span>
+                <input type="name" class="input" placeholder="Введите имя" id="name-input">
+                <p class="mandatory-area"></p>
+            </div>
+            <label for="password-input" class="text-input-label left-side_mobile">
+                <span class="label-text">Пароль</span>
+            </label>
+            <div>
+                <span class="star">*</span>
+                <input type="password" class="input" placeholder="Введите пароль" id="password-input">
+                <p class="mandatory-area">Поле обязательно для заполнения</p>
+            </div>
+            <div class="checkbox-container">
+                <span class="star">*</span>
+                <input type="checkbox" id="checkbox_style" class="checkbox left-side_mobile">
+                <span class="square" for="checkbox_style"></span>
+                <label class="checkbox-text" for="checkbox_style">Я согласен получать обновления на почту</label>
+                <p class="mandatory-area">Поле обязательно для заполнения</p>
+            </div>
+            <button type="button" class="button">Регистрация</button>
+        </form>
+    </body>
+</html>
