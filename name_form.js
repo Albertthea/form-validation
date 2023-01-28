@@ -1,7 +1,4 @@
 let names = ['Aleksandr', 'Aleksej', 'Alex', 'Bob', 'Boris', 'Vadim', 'Vasilij', 'Vladimir'];
-
-// в качестве свойств объектов можно сохранять функцию, тогда это функция
-// называется методом объета и ее можно вызвать через .
 let nameInput = document.getElementById('name-input');
 let inputPass = document.getElementById('password-input');
 let square = document.querySelector('.square');
@@ -76,7 +73,20 @@ let clickButton = document.querySelector('.button');
 clickButton.addEventListener('click', validateForm);
 
 function validateForm() {
-    if (nameInput.value === ''|| nameInput.value.length < 2 || nameInput.value.length > 20){
+    const letterCheck = /^[a-zA-Z\-]+$/;
+    const dashStart = /^\-/;
+    const dashFinish = /\-$/;
+    const passCheck = /^[a-zA-Z0-9\!@\#\$.,\*\(\)\-_\+=]+$/;
+    const lowerCase = /[a-z]/;
+    const upperCase = /[A-Z]/;
+    const symbolPassCheck = /[0-9\!@\#\$.,\*\(\)\-_\+=]/;
+
+    if (nameInput.value === ''
+        || nameInput.value.length < 2 
+        || nameInput.value.length > 20
+        || !letterCheck.test(nameInput.value) 
+        || dashStart.test(nameInput.value) 
+        || dashFinish.test(nameInput.value)) {
         isNameInputValid = false;
 
         if (nameInput.value === '') {
@@ -91,12 +101,29 @@ function validateForm() {
             incorrectNameText = 'Имя слишком длинное';
         }
 
+        if (!letterCheck.test(nameInput.value)) {
+            incorrectNameText = 'Можно использовать только буквы латинского алфавита и тире';
+        } 
+        
+        if (dashStart.test(nameInput.value)) {
+            incorrectNameText = 'Нельзя начинать с тире';
+        }
+
+        if (dashFinish.test(nameInput.value)) {
+            incorrectNameText = 'Нельзя заканчивать тире';
+        }
+
         mandatoryAreas[0].textContent = incorrectNameText;
     } else {
         isNameInputValid = true;
     }
 
-    if (inputPass.value === '' || inputPass.value.length < 8) {
+    if (inputPass.value === '' 
+        || inputPass.value.length < 8
+        || !passCheck.test(inputPass.value)
+        || !lowerCase.test(inputPass.value)
+        || !upperCase.test(inputPass.value)
+        || !symbolPassCheck.test(inputPass.value)) {
         isPassInputValid = false;
 
         if (inputPass.value.length < 8) {
@@ -105,6 +132,22 @@ function validateForm() {
 
         if (inputPass.value === '') {
             incorrectPassText = 'Поле обязательно для заполнения';
+        }
+
+        if (!passCheck.test(inputPass.value)) {
+            incorrectPassText = 'Разрешены буквы латинского алфавита, цифры и символы !@#$.,*()-_=+';
+        }
+
+        if (!lowerCase.test(inputPass.value)) {
+            incorrectPassText = 'Нужна хотя бы одна строчная буква';
+        }
+
+        if (!upperCase.test(inputPass.value)) {
+            incorrectPassText = 'Нужна хотя бы одна заглавная буква';
+        }
+
+        if (!symbolPassCheck.test(inputPass.value)) {
+            incorrectPassText = 'Нужна хотя бы одна цифра или символ !@#$.,*()-_=+';
         }
 
         mandatoryAreas[1].textContent = incorrectPassText;
